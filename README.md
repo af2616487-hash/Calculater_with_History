@@ -22,18 +22,33 @@ This project provides a text-based interface where users can perform basic mathe
 ---
 
 ## Concepts used
+### 1. **Functions**
+**Where used:** `history_show()`, `clear_history()`, `save_history()`, `calculate()`, `main()`  
+**Why used:** To keep code modular, readable, and easy to maintain. Breaking down the program into separate functions makes it simpler to test and reuse each component.
 
-| Concept              | Where it is used                                             | Why it is used                                                                 |
-|----------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------||
-| Functions            | `history_show`, `clear_history`, `save_history`, `calculate`, `main` | To keep code modular, readable, and easy to maintain. |
-| File handling        | `history_show`, `clear_history`, `save_history`             | To store, read, and clear the history of calculations in `history.txt`. |
-| While loop           | `main`                                                      | To continuously accept user input until the user chooses to exit. |
-| Conditional logic    | `calculate`, `main`                                         | To select between commands (`history`, `clear`, `quit`) and operators. |
-| String processing    | `calculate`                                                 | To split user input into operands and operator using `split()`. |
-| Type conversion      | `calculate`                                                 | To convert the string input into numeric (`float`) values for arithmetic. |
-| Basic error handling | `calculate`, `history_show`                                 | To handle invalid input, division by zero, and empty history situations. |
+### 2. **File Handling** 
+**Where used:** `history_show()` (read mode), `clear_history()` (write mode), `save_history()` (append mode)  
+**Why used:** To store, read, and manage the history of calculations persistently in `history.txt`. Without file handling, the history would be lost when the program closes.
 
----
+### 3. **While Loop**
+**Where used:** `main()` function  
+**Why used:** To continuously accept user input until the user chooses to exit. This creates an interactive program that keeps running until explicitly stopped.
+
+### 4. **Conditional Logic (if/elif/else)**
+**Where used:** `calculate()`, `main()`  
+**Why used:** To select between different operations (+, -, *, /) and to route user commands (`history`, `clear`, `quit`) to the correct functions.
+
+### 5. **String Processing**
+**Where used:** `calculate()` function  
+**Why used:** To split user input (like `"8 + 8"`) into three parts: first number, operator, and second number using `.split()`. This allows us to parse user commands.
+
+### 6. **Type Conversion**
+**Where used:** `calculate()` function  
+**Why used:** To convert string input from the user into numeric `float` values for arithmetic calculations. Also converts results to `int` if they're whole numbers for cleaner output.
+
+### 7. **Basic Error Handling**
+**Where used:** `calculate()`, `history_show()`  
+**Why used:** To handle invalid input (wrong format), division by zero, and missing history files gracefully. Prevents the program from crashing with proper error messages.---
 
 ## How the logic works
 
